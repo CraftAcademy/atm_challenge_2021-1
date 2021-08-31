@@ -1,5 +1,20 @@
-As a user I would like to be able to either withdraw money from my account/card 
+As a user 
+
+I would like to be able to either withdraw money from my account/card 
+The ATM needs to have funds.	
+
+As a user
+In order to know if my withdrawl was successful or unsuccessful
+I want to recieve a message with my withdrawl details
+
+As an ATM operator 
+In order for the right person to make a withdrawl
+I want each person to have a separate account
+
+
+
+
+
 
 As a user I would like to be able to check my balance on my card/account.
 
-The ATM needs to have funds.	
