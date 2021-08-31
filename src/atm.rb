@@ -15,10 +15,12 @@ class Atm
           return {status: false, message: "failure", date: Date.today, amount:  amount}
       when insufficient_funds_in_atm?(amount)
         { status: false, message: "insufficient funds in ATM", date: Date.today }
+      when incorrect_pin?(pin_code,account.pin_code)
+        {status: false, message: 'wrong pin', date: Date.today}  
       else
           #If it's not, we perform the transaction
           perform_transaction(amount, account)
-       end
+      end
     end
 
     private
@@ -29,6 +31,10 @@ class Atm
 
     def insufficient_funds_in_atm?(amount)
         amount > @funds
+    end
+
+    def incorrect_pin?(pin_code, actual_pin)
+      pin_code != actual_pin
     end
 
     def perform_transaction(amount, account)
