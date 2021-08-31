@@ -13,6 +13,8 @@ class Atm
       #we exit the method if the amount we want to withdraw is
       # bigger than the balance on the account
           return {status: false, message: "failure", date: Date.today, amount:  amount}
+      when insufficient_funds_in_atm?(amount)
+        { status: false, message: "insufficient funds in ATM", date: Date.today }
       else
           #If it's not, we perform the transaction
           perform_transaction(amount, account)
@@ -24,6 +26,10 @@ class Atm
     def insufficient_funds_in_account?(amount, account)
      amount > account.balance
      end
+
+    def insufficient_funds_in_atm?(amount)
+        amount > @funds
+    end
 
     def perform_transaction(amount, account)
       #we DEDUCT the amount from the Atm's funds

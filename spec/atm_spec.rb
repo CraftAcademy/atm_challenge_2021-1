@@ -37,6 +37,17 @@ describe Atm do
 
     it 'rejects withdraw if the account does not have enought balance.' do
         expected_output = {status: false, message: 'failure', date: Date.today, amount: 150}
-        expect(subject.withdraw(150, account)).to eq expected_output
+        expect(subject.withdraw(150, account)).to eq expected_output   
+    end
+
+    it "reject withdraw if ATM has insufficient funds" do
+        #To prepare the test we want to decrease the funds value
+        # to a lower value then the original 1000
+        subject.funds = 50
+        #Then we set the "expected_output"
+        expected_output = {status: false, message: "insufficient funds in ATM",
+        date: Date.today }
+        # And prepare our assertion/expectation.
+        expect(subject.withdraw(100, account)).to eq expected_output
     end
 end
