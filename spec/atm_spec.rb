@@ -16,7 +16,7 @@ describe Atm do
     #to the 'account' object and set the value to '100'
     allow(account).to receive(:balance).and_return(100)
     #We also need to allow 'account' to receive the new balance
-    #using the setter method 'balance='
+    #using the setter methood 'balance='
     allow(account).to receive(:balance=)
   end
 
