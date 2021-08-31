@@ -5,7 +5,7 @@ class Atm
       @funds = 1000
   end
 
-  def withdraw(amount, account)
+  def withdraw(amount, pin_code, account)
       #We will be using Ruby's "case" - "when" - "when" flow control statement
       # and check if ther are enough funds in the account
       case

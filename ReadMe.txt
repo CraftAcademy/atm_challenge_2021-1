@@ -11,6 +11,10 @@ As an ATM operator
 In order for the right person to make a withdrawl
 I want each person to have a separate account
 
+As a Customer
+
+To keep my funds secure
+I want a secure Pin code & an expiry date on my card that allows only me access to my funds.
 
 
 
