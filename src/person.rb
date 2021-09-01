@@ -9,7 +9,7 @@ class Person
   end
 
   def create_account
-    
+    @account = Account.new(@owner)
   end
 
   private
