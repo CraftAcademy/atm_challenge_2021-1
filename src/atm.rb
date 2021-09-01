@@ -9,6 +9,8 @@ class Atm
     #We will be using Ruby's "case" - "when" - "when" flow control statement
     # and check if ther are enough funds in the account
     case
+    when account_is_disabled?(account.account_status)
+      {status: false, message: 'account disabled', date: Date.today}
     when card_expired?(account.exp_date)
       { status: false, message: "card expired", date: Date.today }
     when incorrect_pin?(pin_code, account.pin_code)
@@ -16,7 +18,7 @@ class Atm
     when insufficient_funds_in_account?(amount, account)
       #we exit the method if the amount we want to withdraw is
       # bigger than the balance on the account
-      return { status: false, message: "failure", date: Date.today, amount: amount }
+      return { status: false, message: "insufficient funds in account", date: Date.today, amount: amount }
     when insufficient_funds_in_atm?(amount)
       { status: false, message: "insufficient funds in ATM", date: Date.today }
     else
@@ -42,6 +44,10 @@ class Atm
 
   def insufficient_funds_in_atm?(amount)
     amount > @funds
+  end
+
+  def account_is_disabled?(account_status)
+    account_status == :disabled
   end
 
 
