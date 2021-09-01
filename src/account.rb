@@ -1,6 +1,6 @@
 class Account
   STANDARD_VALIDITY_YRS = 5
-  attr_accessor :account_status
+  attr_accessor :account_status, :owner
 
   def initialize(attrs = {})
     @account_status = :active

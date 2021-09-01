@@ -11,7 +11,6 @@ describe Account do
 
   it 'is expected to have an owner' do
     expect(subject.owner).to eq person
-    
   end
 
   it "is expect to have an expiry date on initalize" do
