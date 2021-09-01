@@ -5,12 +5,12 @@ class Atm
     @funds = 1000
   end
 
-  def withdraw(amount, pin_code, account) 
+  def withdraw(amount, pin_code, account)
     #We will be using Ruby's "case" - "when" - "when" flow control statement
     # and check if ther are enough funds in the account
     case
     when account_is_disabled?(account.account_status)
-      {status: false, message: 'account disabled', date: Date.today}
+      { status: false, message: "account disabled", date: Date.today }
     when card_expired?(account.exp_date)
       { status: false, message: "card expired", date: Date.today }
     when incorrect_pin?(pin_code, account.pin_code)
@@ -29,9 +29,8 @@ class Atm
 
   private
 
-
   def card_expired?(exp_date)
-    Date.strptime(exp_date, '%m/%y') < Date.today
+    Date.strptime(exp_date, "%m/%y") < Date.today
   end
 
   def incorrect_pin?(pin_code, actual_pin)
@@ -50,6 +49,17 @@ class Atm
     account_status == :disabled
   end
 
+  def correct_bills?(amount)
+    denominations = [20, 10, 5]
+    bills = []
+    denominations.each do |bill|
+      while amount - bill >= 0
+        amount -= bill
+        bills << bill
+      end
+    end
+    bills
+  end
 
   def perform_transaction(amount, account)
     #we DEDUCT the amount from the Atm's funds
@@ -57,6 +67,6 @@ class Atm
     #We also DEDUCT the amount from the accounts balance
     account.balance = account.balance - amount
     #and we return a response for a succesfull withdraw.
-    { status: true, message: "success", date: Date.today, amount: amount }
+    { status: true, message: "success", date: Date.today, amount: amount, bills: correct_bills?(amount) }
   end
 end

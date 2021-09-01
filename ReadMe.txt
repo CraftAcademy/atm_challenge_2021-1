@@ -16,6 +16,10 @@ As a Customer
 To keep my funds secure
 I want a secure Pin code & an expiry date on my card that allows only me access to my funds.
 
+As a Bank Costumer
+In order to withdraw funds in even amounts.
+I want to receive funds in 5,10, 20$ bills
+
 
 
 
