@@ -24,8 +24,9 @@ As a Customer
 In order to manage my funds
 I need a personal account.
 
-
-
+As an ATM operator
+In order to keep track of our customers
+we want to assign each account to a separate person
 
 
 As a user I would like to be able to check my balance on my card/account.

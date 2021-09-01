@@ -1,8 +1,6 @@
 require "./src/account.rb"
 require "date"
 
-
-
 describe Account do
 
   let(:person) {instance_double("Person", name: "Thomas")}
