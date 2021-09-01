@@ -4,8 +4,7 @@ require "date"
 describe Atm do
   let(:account) {
     instance_double("Account", pin_code: "1234", exp_date: "12/22",
-                               account_status: :active)
-  }
+     account_status: :active)}
 
   it "has 1000$ on initialize" do
     expect(subject.funds).to eq 1000

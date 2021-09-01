@@ -20,6 +20,10 @@ As a Bank Costumer
 In order to withdraw funds in even amounts.
 I want to receive funds in 5,10, 20$ bills
 
+As a Customer
+In order to manage my funds
+I need a personal account.
+
 
 
 
