@@ -6,14 +6,16 @@ class Person
   def initialize(attrs = {})
     @name = name
     set_name(attrs[:name])
-    @cash = 0
+    @cash = 1000
     @account = nil
    
   end
 
   def create_account
     @account = Account.new(owner: self)
-    #binding.pry
+    
+    #@account.set_expire_date
+    
   end
 
   def deposit(amount)
@@ -23,9 +25,11 @@ class Person
 
   private
 #binding.pry
+#To call upon a attribute of the Account Class, type @account.attribute
   def deposit_funds(amount)
     @cash -= amount
     @account.balance += amount
+    #binding.pry
   end
 
   def set_name(obj)

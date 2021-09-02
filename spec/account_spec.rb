@@ -29,9 +29,11 @@ describe Account do
     expect { described_class.new }.to raise_error "An Account owner is required"
   end
 
+  it 'is expected that balance to start at 0' do
+    expect(subject.balance).to eq 0
+  end
+
   it "is expected that an account has a pin code that is 4 digits long" do
-    number = 1234
-    pin_number = Math.log10(number).to_i + 1
     expect(subject.pin_number).to eq 4
   end
 end
