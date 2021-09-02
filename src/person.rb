@@ -13,6 +13,11 @@ class Person
     #binding.pry
   end
 
+  def deposit(amount)
+    deposit = amount
+    binding.pry
+  end
+
   private
 
   def set_name(obj)
