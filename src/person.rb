@@ -1,13 +1,19 @@
 require './src/atm'
 
 class Person
-  attr_accessor :name, :cash, :account
+  attr_accessor :name, :cash, :account, :atm,
 
   def initialize(attrs = {})
     @name = name
     set_name(attrs[:name])
     @cash = 1000
     @account = nil
+    @atm = ()
+   
+    
+
+    
+    
   end
 
   def create_account
@@ -20,9 +26,9 @@ class Person
     @account.nil? ? missing_account : deposit_funds(amount)
   end
 
-  def withdraw(amount, pin, account, atm)
-    
-  end
+  def withdraw(args = {})
+    @account == nil ? missing_account : withdraw_funds(amount)
+    end
 
   private
 
@@ -34,9 +40,19 @@ class Person
     # binding.pry
   end
 
-  def withdraw_funds(amount)
-    @cash += amount
-    @account.balance -= amount
+  def withdraw_funds(args)
+    args[:atm] == nil ? missing_atm : atm = args[:atm]
+    account = @account
+    amount = args [:amount]
+    pin = args [:pin]
+    response = atm.withdraw(amount, pin, account)
+    response[:status] == true ? increase_cash(response) : response 
+    # @cash += amount
+    # @account.balance -= amount
+  end
+
+  def increase_cash(response)
+    @cash += response [:amount]
   end
 
   def set_name(obj)

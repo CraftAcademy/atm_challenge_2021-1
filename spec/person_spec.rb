@@ -33,8 +33,6 @@ describe Person do
   end
 
   describe 'can manage funds if an account has been created' do
-    let(:atm) { Atm.new }
-    let(:account) {Account.new}
     before { subject.create_account }
     it 'is expected that an account can deposit funds' do
       expect(subject.deposit(1000)).to be_truthy
@@ -47,17 +45,17 @@ describe Person do
     end
     it 'can withdraw funds' do
       command = lambda {
-        subject.withdraw(amount: 100, pin: subject.account.pin_number, account: subject.account, atm: atm)
+        subject.withdraw(amount: 1000, pin: subject.account.pin_code, account: subject.account, atm: @atm)
       }
       expect(command.call).to be_truthy
     end
   end
 
-  describe 'can not manage funds if no account has been created' do
-    # let(:account) {Account.new}
-    it 'is expected that you cant deposit funds without an account' do
-      # binding.pry
-      expect(subject.deposit(1000)).to raise_error(RuntimeError, 'No account present')
-    end
-  end
+  #   describe 'can not manage funds if no account has been created' do
+  #     # let(:account) {Account.new}
+  #     it 'is expected that you cant deposit funds without an account' do
+  #       # binding.pry
+  #       expect(subject.deposit(1000)).to raise_error(RuntimeError, 'No account present')
+  #     end
+  # end
 end

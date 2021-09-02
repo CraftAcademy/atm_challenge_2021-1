@@ -1,12 +1,12 @@
 class Account
   STANDARD_VALIDITY_YRS = 5
-  attr_accessor :account_status, :owner, :balance, :pin_number, :set_expire_date
+  attr_accessor :account_status, :owner, :balance, :pin_code, :set_expire_date
 
   def initialize(attrs = {})
     @account_status = :active
     set_owner(attrs[:owner])
     @balance = 0
-    @pin_number
+    @pin_code
     @set_expire_date
   end
 
@@ -19,7 +19,7 @@ class Account
     @account_status = :deactivated
   end
 
-  def pin_number
+  def pin_code
     number = rand(1000..9999)
     pin_number = Math.log10(number).to_i + 1
   end
