@@ -39,5 +39,7 @@ describe Person do
         it 'is expected that an account can deposit funds' do
             expect(subject.deposit(1000)).to be_truthy
         end
+
+        
     end
 end
