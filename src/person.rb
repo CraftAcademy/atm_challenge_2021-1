@@ -1,3 +1,5 @@
+require "./src/atm.rb"
+
 class Person
   attr_accessor :name, :cash, :account
 
@@ -6,6 +8,7 @@ class Person
     set_name(attrs[:name])
     @cash = 0
     @account = nil
+   
   end
 
   def create_account
@@ -19,8 +22,9 @@ class Person
   end
 
   private
-
+#binding.pry
   def deposit_funds(amount)
+    @cash -= amount
     @account.balance += amount
   end
 
