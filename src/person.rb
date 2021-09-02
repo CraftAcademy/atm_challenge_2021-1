@@ -14,11 +14,15 @@ class Person
   end
 
   def deposit(amount)
-    deposit = amount
-    binding.pry
+    @account == nil ? missing_name : deposit_funds(amount)
+    #binding.pry
   end
 
   private
+
+  def deposit_funds(amount)
+    @account.balance += amount
+  end
 
   def set_name(obj)
     obj == nil ? missing_name : @name = obj
