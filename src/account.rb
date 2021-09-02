@@ -7,14 +7,14 @@ class Account
     set_owner(attrs[:owner])
     @balance = 0
     @pin_number
-    @set_expire_date 
+    @set_expire_date
   end
 
   def set_expire_date
-    Date.today.next_year(STANDARD_VALIDITY_YRS).strftime("%m/%y")
+    Date.today.next_year(STANDARD_VALIDITY_YRS).strftime('%m/%y')
   end
 
-  #we are using the instance method because we don't need any additional functionality that the class method could give other objects of the class.
+  # we are using the instance method because we don't need any additional functionality that the class method could give other objects of the class.
   def deactivate
     @account_status = :deactivated
   end
@@ -27,10 +27,10 @@ class Account
   private
 
   def set_owner(obj)
-    obj == nil ? missing_owner : @owner = obj
+    obj.nil? ? missing_owner : @owner = obj
   end
 
   def missing_owner
-    raise "An Account owner is required"
+    raise 'An Account owner is required'
   end
 end

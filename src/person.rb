@@ -17,8 +17,8 @@ class Person
   end
 
   def deposit(amount)
-    @account.nil? ? missing_name : deposit_funds(amount)
-    # binding.pry
+    @account.nil? ? missing_account : deposit_funds(amount)
+    
   end
 
   private
@@ -37,5 +37,9 @@ class Person
 
   def missing_name
     raise 'A name is required'
+  end
+
+  def missing_account
+    raise RuntimeError, 'No account present'
   end
 end
