@@ -23,9 +23,13 @@ describe Person do
     end
 
     describe 'can create an Account' do
-        before{subject.create_account}
-        it 'is expected to be an instance of the Account class' do
-            expect(subject.account.owner).to be_an_instance_of Account
+        before {subject.create_account }
+        it 'of Account class' do
+            expect(subject.account).to be_an_instance_of Account
+        end
+
+        it 'with himself as an owner' do
+            expect(subject.account.owner).to be subject
         end
     end
 end

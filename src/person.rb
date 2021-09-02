@@ -1,15 +1,16 @@
 class Person
   attr_accessor :name, :cash, :account
-  
-  def initialize(attrs={})
+
+  def initialize(attrs = {})
     @name = name
-    set_name(attrs[:name]) 
+    set_name(attrs[:name])
     @cash = 0
-    @account = ()
+    @account = nil
   end
 
   def create_account
-    @account = Account.new(@owner)
+    @account = Account.new(owner: self)
+    #binding.pry
   end
 
   private
