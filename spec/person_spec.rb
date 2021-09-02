@@ -38,10 +38,18 @@ describe Person do
     it 'is expected that an account can deposit funds' do
       expect(subject.deposit(1000)).to be_truthy
     end
+    it 'funds are added to the account balance - decucted from cash' do
+      subject.cash = 1000
+      subject.deposit(100)
+      expect(subject.account.balance).to be 100
+      expect(subject.cash).to be 900
+    end
   end
 
   describe 'can not manage funds if no account has been created' do
+    # let(:account) {Account.new}
     it 'is expected that you cant deposit funds without an account' do
+      # binding.pry
       expect(subject.deposit(1000)).to raise_error(RuntimeError, 'No account present')
     end
   end

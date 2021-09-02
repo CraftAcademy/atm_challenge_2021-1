@@ -40,6 +40,7 @@ class Person
   end
 
   def missing_account
+    #binding.pry
     raise RuntimeError, 'No account present'
   end
 end
