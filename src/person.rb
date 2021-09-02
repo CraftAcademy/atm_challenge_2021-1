@@ -18,6 +18,9 @@ class Person
 
   def deposit(amount)
     @account.nil? ? missing_account : deposit_funds(amount)
+  end
+
+  def withdraw(amount, pin, account, atm)
     
   end
 
@@ -31,6 +34,11 @@ class Person
     # binding.pry
   end
 
+  def withdraw_funds(amount)
+    @cash += amount
+    @account.balance -= amount
+  end
+
   def set_name(obj)
     obj.nil? ? missing_name : @name = obj
   end
@@ -40,7 +48,7 @@ class Person
   end
 
   def missing_account
-    #binding.pry
-    raise RuntimeError, 'No account present'
+    # binding.pry
+    raise 'No account present'
   end
 end

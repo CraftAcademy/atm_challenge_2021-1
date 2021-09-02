@@ -34,6 +34,7 @@ describe Person do
 
   describe 'can manage funds if an account has been created' do
     let(:atm) { Atm.new }
+    let(:account) {Account.new}
     before { subject.create_account }
     it 'is expected that an account can deposit funds' do
       expect(subject.deposit(1000)).to be_truthy
@@ -43,6 +44,12 @@ describe Person do
       subject.deposit(100)
       expect(subject.account.balance).to be 100
       expect(subject.cash).to be 900
+    end
+    it 'can withdraw funds' do
+      command = lambda {
+        subject.withdraw(amount: 100, pin: subject.account.pin_number, account: subject.account, atm: atm)
+      }
+      expect(command.call).to be_truthy
     end
   end
 
