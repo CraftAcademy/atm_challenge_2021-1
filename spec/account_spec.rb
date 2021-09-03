@@ -34,6 +34,7 @@ describe Account do
   end
 
   it 'is expected that an account has a pin code that is 4 digits long' do
-    expect(subject.pin_number).to eq 4
+    pin_length = Math.log10(subject.pin_code).to_i + 1
+    expect(pin_length).to eq 4
   end
 end

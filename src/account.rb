@@ -8,7 +8,7 @@ class Account
     @account_status = :active
     set_owner(attrs[:owner])
     @balance = 0
-    @pin_code
+    @pin_code = set_pin
     @exp_date = set_expire_date
   end
 
@@ -21,9 +21,9 @@ class Account
     @account_status = :deactivated
   end
 
-  def pin_code
-    number = rand(1000..9999)
-    pin_number = Math.log10(number).to_i + 1
+  def set_pin
+    rand(1000..9999)
+    
   end
 
   private

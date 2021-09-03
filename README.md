@@ -17,9 +17,9 @@ INSTRUCTIONS
         './src/account.rb'
         './src/atm.rb'
 
-3.To create a new person type Person.new(name: 'name')
-  To create a new account type Account.new(owner: Person)
-  To create a new ATM type Atm.new
+3.To create a new person type person_1 = Person.new(name: 'name')
+  To create a new account type account_1 = Account.new(owner: person_1)
+  To create a new ATM type atm_1 = Atm.new
 
 
 
