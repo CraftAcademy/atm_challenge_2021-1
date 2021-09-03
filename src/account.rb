@@ -1,16 +1,18 @@
+require 'date'
+
 class Account
   STANDARD_VALIDITY_YRS = 5
-  attr_accessor :account_status, :owner, :balance, :pin_code, :set_expire_date
+  attr_accessor :account_status, :owner, :balance, :pin_code, :exp_date
 
   def initialize(attrs = {})
     @account_status = :active
     set_owner(attrs[:owner])
     @balance = 0
     @pin_code
-    @set_expire_date
+    @exp_date
   end
 
-  def set_expire_date
+  def exp_date
     Date.today.next_year(STANDARD_VALIDITY_YRS).strftime('%m/%y')
   end
 

@@ -48,7 +48,7 @@ describe Atm do
   it 'reject withdraw if the card is expired' do
     allow(account).to receive(:exp_date).and_return('12/15')
     expected_output = { status: false, message: 'card expired', date: Date.today }
-    expect(subject.withdraw(6, '1234', account)).to eq expected_output
+    expect(subject.withdraw(6, '1234', account:disabled)).to eq expected_output
   end
 
   it 'rejects withdraw if the account is disabled' do

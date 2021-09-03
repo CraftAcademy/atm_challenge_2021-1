@@ -39,12 +39,7 @@ describe Person do
       expect(subject.deposit(100)).to be_truthy
     end
 
-    describe 'can not manage funds if no account has been created' do
-      before { subject.account = nil }
-      it 'is expected that you cant deposit funds without an account' do
-        expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
-      end
-    end
+
 
     it 'it is funds are added to the account balance - decucted from cash' do
       subject.cash = 100
@@ -57,6 +52,12 @@ describe Person do
         subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm)
       }
       expect(command.call).to be_truthy
+    end
+  end
+  
+  describe 'can not manage funds if no account has been created' do
+    it 'is expected that you cant deposit funds without an account' do
+      expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
   end
 end
