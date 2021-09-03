@@ -12,8 +12,6 @@ class Person
 
   def create_account
     @account = Account.new(owner: self)
-
-    # @account.set_expire_date
   end
 
   def deposit(amount)
@@ -56,7 +54,10 @@ class Person
   end
 
   def missing_account
-   
     raise 'No account present'
+  end
+
+  def missing_atm
+    raise 'An ATM is required'
   end
 end

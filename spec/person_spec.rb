@@ -32,31 +32,38 @@ describe Person do
     end
   end
 
-  describe 'can manage funds if an account has been created' do
+  describe 'it is expected that the user can manage funds if an account 
+            has been created' do
     let(:atm) { Atm.new }
     before { subject.create_account }
-    it 'is expected that an account can deposit funds' do
+    it 'and that an account can deposit funds' do
       expect(subject.deposit(100)).to be_truthy
     end
 
-    it 'is expected that funds are added to the account balance - decucted from cash' do
+    it 'and that funds are added to the account balance - decucted from cash' do
       subject.cash = 100
       subject.deposit(100)
       expect(subject.account.balance).to be 100
       expect(subject.cash).to be 0
     end
-    it 'is expected that funds can be withdrawn' do
+    it 'and that funds can be withdrawn' do
       command = lambda {
-        subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm)
+        subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, 
+        atm: atm)
       }
       expect(command.call).to be_truthy
     end
 
-
+    it 'and that an error will be raised if no ATM has been passed in' do
+        command = lambda {
+            subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm)
+        }
+        expect {command.call}.to raise_error 'An ATM is required'
+    end
   end
   
-  describe 'can not manage funds if no account has been created' do
-    it 'is expected that you cant deposit funds without an account' do
+  describe 'it is expected that user can not manage funds if no account has been created' do
+    it 'and that you cant deposit funds without an account' do
       expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
   end
