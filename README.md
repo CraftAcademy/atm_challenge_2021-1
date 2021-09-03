@@ -1,4 +1,4 @@
-THE CODE
+<h1>THE CODE</h1>
 This code has been written to simulate a virtual ATM, simulating the machine, an account on it, and a user interacting with the ATM.
 
 Dependencies 
@@ -17,9 +17,33 @@ INSTRUCTIONS
         './src/account.rb'
         './src/atm.rb'
 
-3.To create a new person type person_1 = Person.new(name: 'name')
-  To create a new account type account_1 = Account.new(owner: person_1)
-  To create a new ATM type atm_1 = Atm.new
+
+
+To create a new instance of the Person Class type: person_1 = Person.new(name: 'name')
+  To create a new instance of the Account Class type: account_1 = Account.new(owner: person_1)
+  To create a new instance of the ATM Class type: atm_1 = Atm.new
+  To give person_1 an account type: person_1.create_account  . To see full list of attributes type: person_1 into the terminal.
+
+  To deposit money into the the account type: person_1.deposit(amount)
+
+  To withdraw money from the account type: person_1.withdraw(amount: amount, pin: pin_code, account: account_1, atm: atm_1)
+
+  To set new pin code into the account type: account_1.set_pin
+
+  To deactivate acount type: account_1.deactivate
+
+Acknowledgements
+
+  Used course material
+  https://learn.craftacademy.co/courses/enrolled/645199
+
+  Craft Academy Cohort 2021
+
+Updates/Improvement plan
+
+
+
+
 
 
 
