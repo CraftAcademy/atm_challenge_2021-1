@@ -1,3 +1,29 @@
+THE CODE
+This code has been written to simulate a virtual ATM, simulating the machine, an account on it, and a user interacting with the ATM.
+
+Dependencies 
+The dependencies are as follows:
+  RSPEC
+  PRY
+  
+SETUP
+
+
+
+INSTRUCTIONS
+1. Launch irb
+
+2. load './src/person.rb'
+        './src/account.rb'
+        './src/atm.rb'
+
+3.To create a new person type Person.new(name: 'name')
+  To create a new account type Account.new(owner: Person)
+  To create a new ATM type Atm.new
+
+
+
+USER STORIES
 As a user 
 
 I would like to be able to either withdraw money from my account/card 
