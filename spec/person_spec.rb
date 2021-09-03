@@ -56,7 +56,7 @@ describe Person do
 
     it 'and that an error will be raised if no ATM has been passed in' do
         command = lambda {
-            subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm)
+            subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account)
         }
         expect {command.call}.to raise_error 'An ATM is required'
     end
