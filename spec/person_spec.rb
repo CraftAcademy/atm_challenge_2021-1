@@ -46,6 +46,7 @@ describe Person do
       expect(subject.account.balance).to be 100
       expect(subject.cash).to be 0
     end
+
     it 'and that funds can be withdrawn' do
       command = lambda {
         subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, 
@@ -60,6 +61,16 @@ describe Person do
         }
         expect {command.call}.to raise_error 'An ATM is required'
     end
+
+    it 'and that funds are added to cash - deducted from account balance' do
+      subject.cash = 100
+      subject.deposit(100)
+      subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm)
+      expect(subject.account.balance).to be 0
+      expect(subject.cash).to be 100
+      
+    end
+
   end
   
   describe 'it is expected that user can not manage funds if no account has been created' do

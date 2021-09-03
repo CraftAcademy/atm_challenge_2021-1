@@ -24,7 +24,7 @@ class Person
 
   private
 
-  # binding.pry
+ 
   # To call upon a attribute of the Account Class, type @account.attribute
   def deposit_funds(amount)
     @cash -= amount
