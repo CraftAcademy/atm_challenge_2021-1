@@ -1,28 +1,28 @@
-<h1>THE CODE</h1>
+<h1>ReadMe</h1>
+
+<h2>The Code</h2>
 This code has been written to simulate a virtual ATM, simulating the machine, an account on it, and a user interacting with the ATM.
 
-Dependencies 
+<h2>Dependencies 
 The dependencies are as follows:
   RSPEC
   PRY
   
-SETUP
+<h2>Setup</h2>
+Launch irb
+
+load './src/person.rb'
+load './src/account.rb'
+load './src/atm.rb'
 
 
+<h2>Instructions</h2>
+1. To create a new instance of the Person Class type: person_1 = Person.new(name: 'name')
+2. To create a new instance of the Account Class type: account_1 = Account.new(owner: person_1)
+3. To create a new instance of the ATM Class type: atm_1 = Atm.new
+4. To give person_1 an account type: person_1.create_account   
 
-INSTRUCTIONS
-1. Launch irb
-
-2. load './src/person.rb'
-        './src/account.rb'
-        './src/atm.rb'
-
-
-
-To create a new instance of the Person Class type: person_1 = Person.new(name: 'name')
-  To create a new instance of the Account Class type: account_1 = Account.new(owner: person_1)
-  To create a new instance of the ATM Class type: atm_1 = Atm.new
-  To give person_1 an account type: person_1.create_account  . To see full list of attributes type: person_1 into the terminal.
+  To see full list of attributes type: person_1 
 
   To deposit money into the the account type: person_1.deposit(amount)
 
@@ -32,14 +32,14 @@ To create a new instance of the Person Class type: person_1 = Person.new(name: '
 
   To deactivate acount type: account_1.deactivate
 
-Acknowledgements
+<h2>Acknowledgements</h2>
 
   Used course material
   https://learn.craftacademy.co/courses/enrolled/645199
 
   Craft Academy Cohort 2021
 
-Updates/Improvement plan
+<h2>Updates/Improvement plan</h2>
 
 
 
@@ -47,26 +47,20 @@ Updates/Improvement plan
 
 
 
-USER STORIES
-As a user 
-
+<h2>USER STORIES</h2>
+As a Customer
 I would like to be able to either withdraw money from my account/card 
 The ATM needs to have funds.	
 
-As a user
+As a Customer
 In order to know if my withdrawl was successful or unsuccessful
 I want to recieve a message with my withdrawl details
 
-As an ATM operator 
-In order for the right person to make a withdrawl
-I want each person to have a separate account
-
 As a Customer
-
 To keep my funds secure
 I want a secure Pin code & an expiry date on my card that allows only me access to my funds.
 
-As a Bank Costumer
+As a Costumer
 In order to withdraw funds in even amounts.
 I want to receive funds in 5,10, 20$ bills
 
@@ -78,6 +72,8 @@ As an ATM operator
 In order to keep track of our customers
 we want to assign each account to a separate person
 
+As an ATM operator 
+In order for the right person to make a withdrawl
+I want each person to have a separate account
 
-As a user I would like to be able to check my balance on my card/account.
 

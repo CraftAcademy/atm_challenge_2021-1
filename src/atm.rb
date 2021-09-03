@@ -10,9 +10,6 @@ class Atm
   end
 
   def withdraw(amount, pin_code, account)
-    #binding.pry
-    # We will be using Ruby's "case" - "when" - "when" flow control statement
-    # and check if ther are enough funds in the account
     if account_is_disabled?(account.account_status)
       { status: false, message: 'account disabled', date: Date.today }
     elsif card_expired?(account.exp_date)
@@ -20,13 +17,10 @@ class Atm
     elsif incorrect_pin?(pin_code, account.pin_code)
       { status: false, message: 'wrong pin', date: Date.today }
     elsif insufficient_funds_in_account?(amount, account)
-      # we exit the method if the amount we want to withdraw is
-      # bigger than the balance on the account
       { status: false, message: 'insufficient funds in account', date: Date.today, amount: amount }
     elsif insufficient_funds_in_atm?(amount)
       { status: false, message: 'insufficient funds in ATM', date: Date.today }
     else
-      # If it's not, we perform the transaction
       perform_transaction(amount, account)
     end
   end
@@ -62,11 +56,8 @@ class Atm
   end
 
   def perform_transaction(amount, account)
-    # we DEDUCT the amount from the Atm's funds
     @funds -= amount
-    # We also DEDUCT the amount from the accounts balance
     account.balance = account.balance - amount
-    # and we return a response for a succesfull withdraw.
     { status: true, message: 'success', date: Date.today, amount: amount, bills: correct_bills?(amount) }
   end
 end
