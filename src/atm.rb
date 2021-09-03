@@ -11,15 +11,15 @@ class Atm
 
   def withdraw(amount, pin_code, account)
     if account_is_disabled?(account.account_status)
-      { status: false, message: 'account disabled', date: Date.today }
+      raise 'account disabled'
     elsif card_expired?(account.exp_date)
-      { status: false, message: 'card expired', date: Date.today }
+      raise 'card expired'
     elsif incorrect_pin?(pin_code, account.pin_code)
-      { status: false, message: 'wrong pin', date: Date.today }
+      raise'wrong pin'
     elsif insufficient_funds_in_account?(amount, account)
-      { status: false, message: 'insufficient funds in account', date: Date.today, amount: amount }
+      raise'insufficient funds in account'
     elsif insufficient_funds_in_atm?(amount)
-      { status: false, message: 'insufficient funds in ATM', date: Date.today }
+      raise 'insufficient funds in ATM'
     else
       perform_transaction(amount, account)
     end
@@ -58,6 +58,6 @@ class Atm
   def perform_transaction(amount, account)
     @funds -= amount
     account.balance = account.balance - amount
-    { status: true, message: 'success', date: Date.today, amount: amount, bills: correct_bills?(amount) }
+    { status: true, message: 'success', amount: amount, bills: correct_bills?(amount) }
   end
 end
