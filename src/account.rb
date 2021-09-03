@@ -9,10 +9,10 @@ class Account
     set_owner(attrs[:owner])
     @balance = 0
     @pin_code
-    @exp_date
+    @exp_date = set_expire_date
   end
 
-  def exp_date
+  def set_expire_date
     Date.today.next_year(STANDARD_VALIDITY_YRS).strftime('%m/%y')
   end
 
