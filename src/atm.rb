@@ -15,9 +15,9 @@ class Atm
     elsif card_expired?(account.exp_date)
       raise 'card expired'
     elsif incorrect_pin?(pin_code, account.pin_code)
-      raise'wrong pin'
+      raise 'wrong pin'
     elsif insufficient_funds_in_account?(amount, account)
-      raise'insufficient funds in account'
+      raise 'insufficient funds in account'
     elsif insufficient_funds_in_atm?(amount)
       raise 'insufficient funds in ATM'
     else

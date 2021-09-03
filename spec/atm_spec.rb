@@ -25,25 +25,25 @@ describe Atm do
   end
 
   it 'is expected that withdrawl is rejected if the account does not have enought balance.' do
-    expect{subject.withdraw(150, '1234', account)}.to raise_error 'insufficient funds in account'
+    expect { subject.withdraw(150, '1234', account) }.to raise_error 'insufficient funds in account'
   end
 
   it 'is expected to reject withdraw if ATM has insufficient funds' do
     subject.funds = 50
-    expect{subject.withdraw(100, '1234', account)}.to raise_error 'insufficient funds in ATM'
-    end
+    expect { subject.withdraw(100, '1234', account) }.to raise_error 'insufficient funds in ATM'
+  end
 
   it 'is expected to reject withdraw if the pin is wrong' do
-    expect{subject.withdraw(50, '9999', account)}.to raise_error 'wrong pin'
+    expect { subject.withdraw(50, '9999', account) }.to raise_error 'wrong pin'
   end
 
   it 'is expected to reject withdraw if the card is expired' do
     allow(account).to receive(:exp_date).and_return('12/15')
-    expect{subject.withdraw(6, '1234', account)}.to raise_error 'card expired'
+    expect { subject.withdraw(6, '1234', account) }.to raise_error 'card expired'
   end
-      
+
   it 'is expected to reject withdraw if the account is disabled' do
     allow(account).to receive(:account_status).and_return(:disabled)
-    expect{subject.withdraw(50, '1234', account)}.to raise_error 'account disabled'
+    expect { subject.withdraw(50, '1234', account) }.to raise_error 'account disabled'
   end
 end

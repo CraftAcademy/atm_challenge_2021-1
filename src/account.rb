@@ -16,8 +16,13 @@ class Account
     Date.today.next_year(STANDARD_VALIDITY_YRS).strftime('%m/%y')
   end
 
-  def deactivate
-    @account_status = :deactivated
+  def change_account_status
+    if @account_status == :active
+      @account_status = :deactivated
+    else
+      @account_status == :deactivated
+      @account_status = :active
+    end
   end
 
   def set_pin

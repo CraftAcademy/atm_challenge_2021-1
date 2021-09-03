@@ -1,0 +1,28 @@
+USER STORIES
+As a Customer
+I would like to be able to either withdraw money from my account/card 
+The ATM needs to have funds.	
+
+As a Customer
+In order to know if my withdrawl was successful or unsuccessful
+I want to recieve a message with my withdrawl details
+
+As a Customer
+To keep my funds secure
+I want a secure Pin code & an expiry date on my card that allows only me access to my funds.
+
+As a Costumer
+In order to withdraw funds in even amounts.
+I want to receive funds in 5,10, 20$ bills
+
+As a Customer
+In order to manage my funds
+I need a personal account.
+
+As an ATM operator
+In order to keep track of our customers
+we want to assign each account to a separate person
+
+As an ATM operator 
+In order for the right person to make a withdrawl
+I want each person to have a separate account
