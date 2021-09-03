@@ -24,12 +24,9 @@ class Person
 
   private
 
- 
-  # To call upon a attribute of the Account Class, type @account.attribute
   def deposit_funds(amount)
     @cash -= amount
     @account.balance += amount
-    # binding.pry
   end
 
   def withdraw_funds(args)

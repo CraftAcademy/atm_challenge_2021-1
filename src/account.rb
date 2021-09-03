@@ -16,14 +16,17 @@ class Account
     Date.today.next_year(STANDARD_VALIDITY_YRS).strftime('%m/%y')
   end
 
-  # we are using the instance method because we don't need any additional functionality that the class method could give other objects of the class.
-  def deactivate
-    @account_status = :deactivated
+  def change_account_status
+    if @account_status == :active
+      @account_status = :deactivated
+    else
+      @account_status == :deactivated
+      @account_status = :active
+    end
   end
 
   def set_pin
     rand(1000..9999)
-    
   end
 
   private
