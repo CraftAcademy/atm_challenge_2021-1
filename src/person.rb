@@ -1,19 +1,13 @@
 require './src/atm'
 
 class Person
-  attr_accessor :name, :cash, :account, :atm,
+  attr_accessor :name, :cash, :account
 
   def initialize(attrs = {})
     @name = name
     set_name(attrs[:name])
-    @cash = 1000
+    @cash = 0
     @account = nil
-    @atm = ()
-   
-    
-
-    
-    
   end
 
   def create_account
@@ -27,8 +21,8 @@ class Person
   end
 
   def withdraw(args = {})
-    @account == nil ? missing_account : withdraw_funds(amount)
-    end
+    @account.nil? ? missing_account : withdraw_funds(args)
+  end
 
   private
 
@@ -41,14 +35,12 @@ class Person
   end
 
   def withdraw_funds(args)
-    args[:atm] == nil ? missing_atm : atm = args[:atm]
+    args[:atm].nil? ? missing_atm : atm = args[:atm]
     account = @account
     amount = args [:amount]
     pin = args [:pin]
     response = atm.withdraw(amount, pin, account)
-    response[:status] == true ? increase_cash(response) : response 
-    # @cash += amount
-    # @account.balance -= amount
+    response[:status] == true ? increase_cash(response) : response
   end
 
   def increase_cash(response)
@@ -64,7 +56,7 @@ class Person
   end
 
   def missing_account
-    # binding.pry
+   
     raise 'No account present'
   end
 end

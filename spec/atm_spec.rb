@@ -3,8 +3,7 @@ require 'date'
 
 describe Atm do
   let(:account) do
-    instance_double('Account', pin_code: '1234', exp_date: '12/22',
-                               account_status: :active)
+  instance_double('Account', pin_code: '1234', exp_date: '12/22', account_status: :active)
   end
 
   it 'has 1000$ on initialize' do
@@ -18,7 +17,6 @@ describe Atm do
   before do
     allow(account).to receive(:balance).and_return(100)
     allow(account).to receive(:balance=)
-    # allow(account.to receive(:account_status=))
   end
 
   it 'allow withdraw if the account has enough balance.' do

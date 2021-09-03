@@ -6,6 +6,7 @@ class Atm
   end
 
   def withdraw(amount, pin_code, account)
+    binding.pry
     # We will be using Ruby's "case" - "when" - "when" flow control statement
     # and check if ther are enough funds in the account
     if account_is_disabled?(account.account_status)
