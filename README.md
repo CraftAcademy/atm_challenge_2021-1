@@ -15,17 +15,16 @@ load './src/person.rb'
 load './src/account.rb'
 load './src/atm.rb'
 
-
 <h2>Instructions</h2>
-To create a new instance of the Person Class type: person_1 = Person.new(name: 'name')
+To create a new instance of the Person Class type: person_1 = Person.new(name: 'name') <br>
 
 To create a new instance of the Account Class type: account_1 = Account.new(owner: person_1)
 
 To create a new instance of the ATM Class type: atm_1 = Atm.new
 
-To give person_1 an account type: person_1.create_account   
+To give person_1 an account type: person_1.create_account
 
-To see full list of attributes type: person_1 
+To see full list of attributes type: person_1
 
 To deposit money into the the account type: person_1.deposit(amount)
 
@@ -36,20 +35,10 @@ To set new pin code into the account type: account_1.set_pin
 To change status of account type: account_1.change_account_status
 
 <h2>Acknowledgements</h2>
+Course material at:
+https://learn.craftacademy.co/courses/enrolled/645199
 
-  Used course material
-  https://learn.craftacademy.co/courses/enrolled/645199
+Craft Academy Cohort 2021
 
-  Craft Academy Cohort 2021
-
-<h2>Updates/Improvement plan</h2>
-
-
-
-
-
-
-
-
-
-
+<h2>License</h2>
+MIT License
